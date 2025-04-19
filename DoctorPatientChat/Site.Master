@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DoctorPatientChat.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Doktor Hasta Mesajlaşma Sistemi</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Path="~/Scripts/bootstrap.js" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Doktor Hasta Mesajlaşma Sistemi</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <asp:Panel ID="pnlLoggedIn" runat="server" Visible="false" CssClass="navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/Dashboard.aspx">Ana Sayfa</a></li>
+                            <li>
+                                <a href="Profile.aspx" title="Profilim" style="font-size: 1.5rem; padding-top: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                      <path d="M11 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM4.285 12.433A5.978 5.978 0 0 0 8 13c1.306 0 2.518-.418 3.515-1.118C11.356 11.226 9.805 10.5 8 10.5c-1.805 0-3.356.726-3.715 1.933z"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li><asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click">Çıkış Yap</asp:LinkButton></li>
+                        </ul>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlNotLoggedIn" runat="server" Visible="true" CssClass="navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/Login.aspx">Giriş Yap</a></li>
+                            <li><a runat="server" href="~/Register.aspx">Kayıt Ol</a></li>
+                        </ul>
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Doktor Hasta Mesajlaşma Sistemi</p>
+            </footer>
+        </div>
+    </form>
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

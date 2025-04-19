@@ -1,0 +1,320 @@
+﻿/* Ana Renkler ve Değişkenler */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --accent-color: #9b59b6;
+    --light-color: #f9f9f9;
+    --dark-color: #34495e;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+/* Genel Stil */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding-top: 70px;
+}
+
+/* Navbar Stil */
+.navbar-inverse {
+    background: linear-gradient(to right, var(--dark-color), #2c3e50);
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .navbar-inverse .navbar-brand,
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+        font-weight: 500;
+    }
+
+        .navbar-inverse .navbar-brand:hover,
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #dff9fb;
+        }
+
+/* Panel Stilleri */
+.panel {
+    border: none;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 30px;
+}
+
+    .panel:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+.panel-primary {
+    border-color: var(--primary-color);
+}
+
+    .panel-primary > .panel-heading {
+        background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+        color: white;
+        border: none;
+        padding: 15px;
+    }
+
+.panel-body {
+    padding: 25px;
+    background-color: white;
+}
+
+/* Form Stilleri */
+.form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    box-shadow: none;
+    padding: 10px 12px;
+    height: auto;
+}
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    }
+
+.control-label {
+    font-weight: 500;
+}
+
+/* Buton Stilleri */
+.btn {
+    border-radius: var(--border-radius);
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    border: none;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+    .btn-primary:hover, .btn-primary:focus {
+        background: linear-gradient(to right, var(--primary-dark), #1a6ba1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+    }
+
+.btn-default {
+    background: linear-gradient(to right, #ecf0f1, #bdc3c7);
+    border: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .btn-default:hover, .btn-default:focus {
+        background: linear-gradient(to right, #dfe6e9, #b2bec3);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+/* Chat Stilleri */
+.chat-container {
+    height: 500px;
+    display: flex;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: white;
+}
+
+.contacts-list {
+    width: 300px;
+    background-color: #f5f6fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.contact-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .contact-item:hover {
+        background-color: #ecf0f1;
+    }
+
+    .contact-item.active {
+        background-color: #e0f7fa;
+        border-left: 4px solid var(--primary-color);
+    }
+
+.chat-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-container {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.message {
+    max-width: 75%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.message-sent {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.message-received {
+    background-color: #e9e9eb;
+    color: #333;
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.message-input {
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+    .message-input .form-control {
+        border-radius: 20px;
+        margin-right: 10px;
+    }
+
+    .message-input .btn {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+/* Dashboard Kartları */
+.dashboard-card {
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .dashboard-card .icon {
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+
+    .dashboard-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: var(--dark-color);
+    }
+
+    .dashboard-card p {
+        color: #777;
+    }
+
+/* Profil Sayfası */
+.profile-header {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+    .profile-header h2 {
+        margin: 0;
+        font-weight: 300;
+    }
+
+    .profile-header p {
+        margin: 5px 0 0;
+        opacity: 0.8;
+    }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #7f8c8d;
+}
+
+/* Uyarı ve Bildirimler */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contacts-list {
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
